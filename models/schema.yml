@@ -4,16 +4,16 @@ sources:
   - name: raw
     schema: gz_raw_data
     tables:
-    - name: sales
+    - name: sales    
       identifier: raw_gz_sales
       description: sales of Greenweez
       columns:
           - name: date_date
             description: date of purchase
           - name: orders_id
-            description: unique order identification
+            description:  foreign key to ship
           - name: pdt_id
-            description: unique product identification
+            description: foreign key to product
           - name: revenue
             description: value of order
           - name: quantity
@@ -24,6 +24,9 @@ sources:
       columns:
        - name: products_id
          description: products identity
+         tests: 
+          - unique
+          - not_null
        - name: purcHSE_PRICE
          description: price per item
 
