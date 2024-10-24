@@ -2,10 +2,56 @@ version: 2
 
 sources:
   - name: gz_raw_data
+    schema: raw_gz_sales
     tables:
-      - name: raw_gz_sales
-      - name: raw_gz_product
-      - name: raw_gz_ship
+    - name: raw_gz_sales
+      description: sales of Greenweez/we have on row per product_id found in each orders_id
+        columns :
+          - name: date_date
+            description: date of purchase
+          - name: orders_id
+            description: unique order identification
+          - name: pdt_id
+            description: unique product identification
+          - name: revenue
+            description: value of order
+          - name: quantity
+            description: quantity per order  
+
+ #source for product table
+  
+     - name: gz_raw_data
+       schema: raw_gz_product
+       tables:
+         - name: raw_gz_product
+           description: products in stock
+           columns:
+            -name:
+                 products_id
+             description: products identity
+             - name:
+               purcHSE_PRICE
+               description: price per item
+
+#source for ship table
+-name : gz_raw_data
+ schema: raw_gz_ship
+ tables:
+  - name: orders_id
+   description: order identification
+   - name: shipping_fee
+     description: shipping fee per order
+     - name:logCost
+      description: log cost of shipping
+      - name: ship_cost
+      description: shipping cost
+
+
+              
+           
+
+        
+      
 
      
     
