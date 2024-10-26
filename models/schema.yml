@@ -48,9 +48,10 @@ sources:
 models:
   - name: stg_raw__sales
     description: sales of stock
-    tests:
-      - unique:
-          column_name:products_id
+    columns:
+      - name: products_id
+        tests:
+          - unique
   - name: stg_raw__product
     description: cleanining rows
 
