@@ -45,6 +45,17 @@ sources:
          description: cost of logs
        - name: ship_cost
          description: cost of shipment
+models:
+  - name: stg_raw__sales
+    description: sales of stock
+    tests:
+      - unique:
+          column_name:products_id
+  - name: stg_raw__product
+    description: cleanining rows
+
+
+
 
 
    

@@ -1,0 +1,7 @@
+SELECT *
+FROM
+{{(ref("stg_raw__product")}}
+JOIN
+{{("stg_raw__sales")}}
+USING (products_id)
+
