@@ -2,6 +2,12 @@ SELECT
 o.orders_id
 ,o.date_date
 ,o.revenue
+,o.margin
+,o.purchase_cost
+,s.shipping_fee
+,s.logcost
+,s.ship_cost
+,o.order_quantity
 ,ROUND(
     SAFE_CAST(o.margin AS FLOAT64)+
     SAFE_CAST(s.shipping_fee AS FLOAT64)-
