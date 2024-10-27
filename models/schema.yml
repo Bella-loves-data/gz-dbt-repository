@@ -4,71 +4,74 @@ sources:
   - name: raw
     schema: gz_raw_data
     tables:
-    - name: sales    
-      identifier: raw_gz_sales
-      description: sales of Greenweez
-      columns:
+      - name: sales
+        identifier: raw_gz_sales
+        description: sales of Greenweez
+        columns:
           - name: date_date
             description: date of purchase
           - name: orders_id
-            description:  foreign key to ship
+            description: foreign key to ship
           - name: pdt_id
             description: foreign key to product
+            tests:
+              - unique:
+                 column_name: products_id
+              - not_null:
+                 column_name: products_id  
           - name: revenue
             description: value of order
           - name: quantity
-            description: quantity per order  
-    - name: product
-      identifier: raw_gz_product
-      description: products in stock
-      columns:
-       - name: products_id
-         description: products identity
-         tests: 
-          - unique
-          - not_null
-       - name: purcHSE_PRICE
-         description: price per item
+            description: quantity per order
+      - name: product
+        identifier: raw_gz_product
+        description: products in stock
+        columns:
+          - name: products_id
+            description: products identity
+            tests:
+              - unique:
+                 column_name: products_id
+              - not_null:
+                 column_name: products_id
+          - name: purcHSE_PRICE
+            description: price per item
 
-   
-    - name: ship
-      identifier: raw_gz_ship
-      description: shipping of orders
-      columns:
-       - name: orders_id
-         description: orders identity
-       - name: ship_fee
-         description: cost of shipping  
-       - name: shipping_fee_1
-         description: ship cost
-       - name: logCost
-         description: cost of logs
-       - name: ship_cost
-         description: cost of shipment
+      - name: ship
+        identifier: raw_gz_ship
+        description: shipping of orders
+        columns:
+          - name: orders_id
+            description: orders identity
+          - name: ship_fee
+            description: cost of shipping
+          - name: shipping_fee_1
+            description: ship cost
+          - name: logCost
+            description: cost of logs
+          - name: ship_cost
+            description: cost of shipment
 models:
   - name: stg_raw__sales
     description: sales of stock
     columns:
       - name: products_id
-        tests:
-          - unique
-  - name: stg_raw__product
-    description: cleanining rows
+        description:  product identifier
+      - name: stg_raw__product
+        description: cleanining rows
 
-
-
-
-
-   
-
-              
-           
-
-        
-      
-
-     
-    
-    
-      
-    
+  - name: int_orders_margin
+    description: order
+    columns:
+      - name: orders_id
+        description: primary key
+      - name: date_date
+        description: order date
+      - name: revenue
+        description: total sales
+      - name: quantity
+        description: order quantity
+      - name: purchase_cost
+        description: cost of all purchases
+      - name: margin
+        description: cost of goods sold
