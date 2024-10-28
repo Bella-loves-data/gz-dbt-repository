@@ -69,9 +69,79 @@ models:
         description: order date
       - name: revenue
         description: total sales
-      - name: quantity
+      - name: order_quantity
         description: order quantity
       - name: purchase_cost
         description: cost of all purchases
       - name: margin
         description: cost of goods sold
+
+  - name: int_orders_operational
+    description: order
+    columns:
+      - name: orders_id
+        description: primary key
+      - name: date_date
+        description: order date
+      - name: revenue
+        description: total sales
+      - name: margin
+        description: cost of goods solfd
+      - name: purchase_cost
+        description: cost of all purchases
+      - name: shipping_fee
+        description: fee of shipping
+      - name: logcost
+        description: cost per log
+      - name: ship_cost
+        description: cost per ship
+      - name: order_quantity
+        description: quantities per order 
+      - name: operational margin
+        description: operational cost 
+
+  - name: int_sales_margin
+    description: order
+    columns:
+      - name: products_id
+        description: product identifier
+      - name: date_date
+        description: order date
+      - name: revenue
+        description: total sales
+      - name: quantity
+        description: order quantity
+      - name: purchase_price
+        description: price of all purchases
+      - name: purchase_cost
+        description: cost of purchases
+      - name: margin
+        description: cost of goods sold
+
+  - name: finance_days
+    description: daily financial report
+    columns:                   
+      - name: date_date
+        description: date of transaction
+      - name: nb_transactiond
+        description: number of transactions
+      - name: revenue
+        description: total sales
+      - name: average basket
+        description: average sale per basket
+      - name: average basket bis
+        description: average sale per basket bis
+      - name: margin
+        description: cost of goods sold
+      - name: operational margin
+        description: operational cost
+      - name: purchase_cost
+        description: cost of purchases
+      - name: shipping_fee
+        description: fee per shipping
+      - name: logcost
+        description: cost of log
+      - name: ship_cost
+        description: cost of shippig
+      - name: quantity
+        description: quantity sold
