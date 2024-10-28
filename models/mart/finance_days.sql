@@ -1,6 +1,4 @@
-create or replace view `level-footing-433509-h3`.`dbt_belinda`.`finance_days`
-OPTIONS()
-as SELECT
+ SELECT
     date_date,
     COUNT(orders_id) AS nb_transactions,
     ROUND(SUM(CAST(revenue AS FLOAT64)), 0) AS revenue,
